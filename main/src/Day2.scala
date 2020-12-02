@@ -1,12 +1,12 @@
 package alexcardell.advent20
 
-import cats.implicits._
+import scala.io.Source
+import scala.util.Success
+import scala.util.Try
+
 import cats.effect.IO
 import cats.effect.Resource
-import scala.io.Source
-import scala.util.Try
-import scala.util.Success
-import scala.util.Failure
+import cats.implicits._
 
 object Day2 extends Day[Int, Int] {
   case class Policy(min: Int, max: Int, char: Char, pwd: String)

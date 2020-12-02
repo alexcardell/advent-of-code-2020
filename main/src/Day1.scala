@@ -1,8 +1,9 @@
 package alexcardell.advent20
 
+import scala.io.Source
+
 import cats.effect.IO
 import cats.effect.Resource
-import scala.io.Source
 
 object Day1 extends Day[Int, Int] {
   def run(path: String, n: Int = 2): IO[Int] =
