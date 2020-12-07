@@ -49,7 +49,7 @@ object Day2 extends Day[Int, Int] {
       .fromAutoCloseable(IO(Source.fromResource(path)))
       .use(source =>
         IO.fromTry {
-          source.getLines.toVector
+          source.getLines().toVector
             .map(Policy.from)
             .sequence
             .map(policies => policies.map(validationFn).count(_ == true))

@@ -9,7 +9,7 @@ object Day1 extends Day[Int, Int] {
   def run(path: String, n: Int = 2): IO[Int] =
     Resource
       .fromAutoCloseable(IO(Source.fromResource(path)))
-      .map(_.getLines.to(List).map(_.toInt))
+      .map(_.getLines().to(List).map(_.toInt))
       .use(lines =>
         IO { lines.combinations(n).find(_.sum == 2020).map(_.product).head }
       )

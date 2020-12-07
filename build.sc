@@ -6,7 +6,7 @@ import mill._, scalalib._, modules._, scalafmt._
 object main extends CommonModule
 
 trait CommonModule extends ScalaModule with Quality {
-  def scalaVersion = "2.13.1"
+  def scalaVersion = "2.13.3"
 
   def ivyDeps =
     Agg(
@@ -24,7 +24,7 @@ trait CommonModule extends ScalaModule with Quality {
   }
 
   object benchmarks extends Jmh with Quality {
-    def scalaVersion = "2.13.1"
+    def scalaVersion = "2.13.3"
   }
 }
 

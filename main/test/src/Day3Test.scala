@@ -1,8 +1,8 @@
 package alexcardell.advent20
 
+import alexcardell.advent20.Day3._
 import cats.effect.testing.utest.IOTestSuite
 import utest._
-import Day3._
 
 object Day3IOTest extends IOTestSuite {
   val tests = Tests {

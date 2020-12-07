@@ -1,8 +1,9 @@
 package alexcardell.advent20
 
+import scala.io.Source
+
 import cats.effect.IO
 import cats.effect.Resource
-import scala.io.Source
 
 object Day3 extends Day[Int, Int] {
   case class Gradient(right: Int, down: Int)
@@ -25,7 +26,7 @@ object Day3 extends Day[Int, Int] {
   def run(path: String, gradients: Array[Gradient]): IO[Int] =
     Resource
       .fromAutoCloseable(IO(Source.fromResource(path)))
-      .map(source => source.getLines.to(LazyList).zipWithIndex)
+      .map(source => source.getLines().to(LazyList).zipWithIndex)
       .use(lines => {
         val paths = gradients.map(g => Path(gradient = g))
 
