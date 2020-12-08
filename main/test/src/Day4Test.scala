@@ -262,12 +262,8 @@ object Day4IOTest extends IOTestSuite {
     }
 
     test("Part 2") {
-      // test("works for test input") {
-      //   run(testResource).map(_ ==> 2)
-      // }
-
       test("works for real input") {
-        part2.map(_ ==> 182)
+        part2.map(_ ==> 109)
       }
     }
   }
