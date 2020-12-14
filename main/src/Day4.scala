@@ -112,19 +112,6 @@ object Day4 extends Day[Int, Int] {
       pid: String // (Passport ID)
   )
 
-  def groupLines(lines: Seq[String]): Seq[Seq[String]] = {
-    val init = LazyList(LazyList[String]())
-
-    lines.foldLeft(init)((acc, line) =>
-      if (line == "") {
-        acc.prepended(LazyList())
-      } else {
-        val newHead = acc.head.prepended(line)
-        acc.tail.prepended(newHead)
-      }
-    )
-  }
-
   def splitComponents(s: String): Map[String, String] =
     s.split(' ').map(_.split(':')).map(a => (a(0), a(1))).toMap
 
@@ -142,7 +129,7 @@ object Day4 extends Day[Int, Int] {
       .fromAutoCloseable(IO(Source.fromResource(path)))
       .use(source => {
         val lines = source.getLines().to(LazyList)
-        val blocks = groupLines(lines).map(_.mkString(" "))
+        val blocks = groupLines(lines).to(LazyList).map(_.mkString(" "))
         val count = blocks.map(componentsArePresent).count(_.isDefined == true)
 
         val count2 =
